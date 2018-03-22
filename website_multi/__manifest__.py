@@ -14,6 +14,7 @@ Set up Multi-Websites, Multi-Theme, Multi-eCommerce, Multi-Company on a single d
         'website_multi_theme',
     ],
     'data': [
+        'views/website_templates.xml',
         'views/website_views.xml',
     ],
     'demo': [

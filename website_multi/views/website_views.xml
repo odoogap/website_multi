@@ -24,6 +24,7 @@
               sequence="18"
               groups="base.group_no_one"/>
 
+    <!-- Website Form -->
     <record id="view_website_form" model="ir.ui.view">
         <field name="model">website</field>
         <field name="inherit_id" ref="website.view_website_form" />
@@ -31,6 +32,22 @@
             <field name="google_analytics_key" position="after">
                 <field name="google_management_client_id" />
             </field>
+            <xpath expr="//div[last()]" position="after">
+                <div name="header">
+                    <separator string="Header"/>
+                    <group name="header">
+                        <field name="website_logo" widget="image"/>
+                    </group>
+                </div>
+                <div name="footer">
+                    <separator string="Footer"/>
+                    <group name="footer">
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="footer_description"/>
+                    </group>
+                </div>
+            </xpath>
         </field>
     </record>
 
