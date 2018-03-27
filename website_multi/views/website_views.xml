@@ -42,6 +42,7 @@
                 <div name="footer">
                     <separator string="Footer"/>
                     <group name="footer">
+                        <field name="footer_company_name"/>
                         <field name="phone"/>
                         <field name="email"/>
                         <field name="footer_description"/>
