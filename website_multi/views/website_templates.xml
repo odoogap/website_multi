@@ -15,6 +15,11 @@
 
     <!-- Website Footer -->
     <template id="footer_default" inherit_id="website.footer_default" customize_show="True" name="Automatic Footer">
+        <xpath expr="//div[@id='footer']/div[hasclass('row')]/div/ul[last()]" position="after">
+            <section>
+                <div class="oe_structure"/>
+            </section>
+        </xpath>
         <xpath expr="((//div[@id='footer']/div[hasclass('row')]/div)[2]/ul)[2]" position="replace">
             <ul class="list-unstyled">
                 <li t-if="website.phone or res_company.phone" t-ignore="true">
