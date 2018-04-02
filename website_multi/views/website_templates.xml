@@ -50,7 +50,7 @@
     <!-- Add website custom CSS -->
     <template id="layout" inherit_id="web.layout">
         <xpath expr="//head" position="inside">
-            <style t-if="website.website_styles">
+            <style t-if="website and website.website_styles">
                 <t t-raw="website.website_styles"/>
             </style>
         </xpath>
