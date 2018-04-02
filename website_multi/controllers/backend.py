@@ -15,7 +15,7 @@ class WebsiteBackend(odoo.addons.website.controllers.backend.WebsiteBackend):
             website_domain = request.httprequest.headers.get('Referer', False)
             domain = urlparse.urlsplit(website_domain)[1].split(':')[0]
 
-            website = self.env['website'].sudo().search([('domain', 'ilike', domain)], limit=1)
+            website = request.env['website'].sudo().search([('domain', 'ilike', domain)], limit=1)
             if website:
                 # Replaces Google Analytics metadata
                 dashboard_data['dashboards']['visits']['ga_analytics_key'] = website.google_analytics_key
