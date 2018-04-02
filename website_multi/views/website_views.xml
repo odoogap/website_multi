@@ -49,6 +49,14 @@
                     </group>
                 </div>
             </xpath>
+            <xpath expr="//div[last()]" position="after">
+                <div name="styles">
+                    <separator string="Styles"/>
+                    <group name="styles">
+                        <field name="website_styles"/>
+                    </group>
+                </div>
+            </xpath>
         </field>
     </record>
 

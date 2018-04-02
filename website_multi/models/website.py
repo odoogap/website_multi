@@ -10,3 +10,4 @@ class Website(models.Model):
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
     footer_description = fields.Text(string='Description')
+    website_styles = fields.Text(string='CSS')

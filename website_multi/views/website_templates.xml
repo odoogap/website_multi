@@ -37,11 +37,22 @@
         <xpath expr="(//div[@id='footer']/div[hasclass('row')]/div)[3]/h4" position="replace">
             <h4>
                 <span t-esc="website.footer_company_name or website.name"/>
-                <small> - <a href="/aboutus">About us</a></small>
+                <small>-
+                    <a href="/aboutus">About us</a>
+                </small>
             </h4>
         </xpath>
         <xpath expr="(//div[@id='footer']/div[hasclass('row')]/div)[3]/div" position="replace">
             <div t-esc="website.footer_description"/>
+        </xpath>
+    </template>
+
+    <!-- Add website custom CSS -->
+    <template id="layout" inherit_id="web.layout">
+        <xpath expr="//head" position="inside">
+            <style t-if="website.website_styles">
+                <t t-raw="website.website_styles"/>
+            </style>
         </xpath>
     </template>
 
