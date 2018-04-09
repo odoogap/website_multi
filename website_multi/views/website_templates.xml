@@ -15,11 +15,6 @@
 
     <!-- Website Footer -->
     <template id="footer_default" inherit_id="website.footer_default" customize_show="True" name="Automatic Footer">
-        <xpath expr="//div[@id='footer']/div[hasclass('row')]/div/ul[last()]" position="after">
-            <section>
-                <div class="oe_structure"/>
-            </section>
-        </xpath>
         <xpath expr="((//div[@id='footer']/div[hasclass('row')]/div)[2]/ul)[2]" position="replace">
             <ul class="list-unstyled">
                 <li t-if="website.phone or res_company.phone" t-ignore="true">
@@ -44,6 +39,17 @@
         </xpath>
         <xpath expr="(//div[@id='footer']/div[hasclass('row')]/div)[3]/div" position="replace">
             <div t-esc="website.footer_description"/>
+        </xpath>
+        <xpath expr="//div[@id='footer']/div[hasclass('row')]/div" position="replace">
+            <div t-if="website.footer_products_services" class="col-md-4 col-lg-3">
+                <t t-raw="website.footer_products_services"/>
+            </div>
+            <div t-if="not website.footer_products_services" class="col-md-4 col-lg-3">
+                <h4>Our Products &amp; Services</h4>
+                <ul class="list-unstyled" id="products">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
         </xpath>
     </template>
 

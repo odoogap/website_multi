@@ -46,10 +46,9 @@
                         <field name="phone"/>
                         <field name="email"/>
                         <field name="footer_description"/>
+                        <field name="footer_products_services"/>
                     </group>
                 </div>
-            </xpath>
-            <xpath expr="//div[last()]" position="after">
                 <div name="styles">
                     <separator string="Styles"/>
                     <group name="styles">

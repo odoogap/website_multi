@@ -11,3 +11,4 @@ class Website(models.Model):
     email = fields.Char(string='Email')
     footer_description = fields.Text(string='Description')
     website_styles = fields.Text(string='CSS')
+    footer_products_services = fields.Text(string='Products & Services (HTML)')
