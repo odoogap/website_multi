@@ -47,7 +47,9 @@
             <div t-if="not website.footer_products_services" class="col-md-4 col-lg-3">
                 <h4>Our Products &amp; Services</h4>
                 <ul class="list-unstyled" id="products">
-                    <li><a href="/">Home</a></li>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
                 </ul>
             </div>
         </xpath>
@@ -59,6 +61,44 @@
             <style t-if="website and website.website_styles">
                 <t t-raw="website.website_styles"/>
             </style>
+        </xpath>
+    </template>
+
+    <!-- Company description on contact -->
+    <template id="contact" inherit_id="base.contact">
+        <xpath expr="//address" position="replace">
+            <div t-if="not (('name' in fields) or (address and 'address' in fields) or (city and 'city' in fields) or (mobile and 'mobile' in fields) or (website and 'website' in fields) or (email and 'email' in fields))"
+                 class="css_non_editable_mode_hidden">
+                --<span class="text-muted" t-esc="name"/>--
+            </div>
+            <t t-if="object.country_id.name_position != 'after'">
+                <t t-esc="request.website.footer_company_name"/>
+            </t>
+            <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                <div t-if="not request.website.phone and phone and 'phone' in fields">
+                    <i t-if="not options.get('no_marker') or options.get('phone_icons')" class='fa fa-phone fa-fw'/>
+                    <span itemprop="telephone" t-esc="phone"/>
+                </div>
+                <div t-if="not request.website.phone and mobile and 'mobile' in fields">
+                    <i t-if="not options.get('no_marker') or options.get('phone_icons')" class='fa fa-mobile fa-fw'/>
+                    <span itemprop="telephone" t-esc="mobile"/>
+                </div>
+                <div t-if="request.website.phone">
+                    <i t-if="not options.get('no_marker') or options.get('phone_icons')" class='fa fa-phone fa-fw'/>
+                    <span itemprop="telephone" t-esc="request.website.phone"/>
+                </div>
+                <div t-if="not request.website.email and email and 'email' in fields">
+                    <i t-if="not options.get('no_marker')" class='fa fa-envelope fa-fw'/>
+                    <span itemprop="email" t-esc="email"/>
+                </div>
+                <div t-if="request.website.email">
+                    <i t-if="not options.get('no_marker')" class='fa fa-envelope fa-fw'/>
+                    <span itemprop="email" t-esc="request.website.email"/>
+                </div>
+            </div>
+            <t t-if="object.country_id and object.country_id.name_position == 'after'">
+                <t t-esc="request.website.footer_company_name"/>
+            </t>
         </xpath>
     </template>
 
