@@ -47,6 +47,7 @@
                         <field name="email"/>
                         <field name="footer_description"/>
                         <field name="footer_products_services"/>
+                        <field name="payment_methods"/>
                     </group>
                 </div>
                 <div name="styles">

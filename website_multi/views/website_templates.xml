@@ -53,6 +53,11 @@
                 </ul>
             </div>
         </xpath>
+        <xpath expr="//div[@id='footer']/div" position="after">
+            <div class="row">
+                <t t-raw="website.payment_methods"/>
+            </div>
+        </xpath>
     </template>
 
     <!-- Add website custom CSS -->

@@ -12,3 +12,4 @@ class Website(models.Model):
     footer_description = fields.Text(string='Description')
     website_styles = fields.Text(string='CSS')
     footer_products_services = fields.Text(string='Products & Services (HTML)')
+    payment_methods = fields.Text(string='Payment Methods (HTML)')
